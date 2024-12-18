@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMR Engineering College</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #ffffff;
+            border-bottom: 2px solid #002855;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100px;
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .logo-text h1 {
+            color: #002855;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-text h2 {
+            color: #ff6600;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .logo-text p {
+            color: #666666;
+            font-size: 0.9rem;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+            position: relative; /* For dropdown positioning */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #002855;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff6600;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block; /* Show dropdown on hover */
+        }
+
+        /* Admissions Button */
+        .admissions {
+            text-align: center;
+            background-color: #002855;
+            padding: 15px 0;
+        }
+
+        .admissions button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .admissions button:hover {
+            background-color: #e55a00;
+        }
+
+        /* Image Section */
+        .image-container {
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* About CMRIT Section */
+        .about-section {
+            background-color: #fff8ee;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            color: #ff6600;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            color: #333333;
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Recruiters Section */
+        .recruiters-section {
+            background-color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .recruiters-section h2 {
+            color: #002855;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+ 
+        .recruiters-logos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .recruiters-logos img {
+            width: 1000px;
+            height: auto;
+            margin: 10px;
+        }
+
+        .recruiters-logos img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #002855;
+            color: white;
+            padding: 40px 20px;
+            text-align: left;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #d1e3f8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff6600;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+
+        .footer-social a {
+            color: #d1e3f8;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-social a:hover {
+            color: #ff6600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid #ffffff;
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: #d1e3f8;
+        }
+        .footer-1{
+            margin-right: 70px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx61ZeiuRvxT-AuzVIXLhAp9PSK9iXrMmEJg&s" alt="CMR Logo">
+                <div class="logo-text">
+                    <h1>CMR ENGINEERING COLLEGE</h1>
+                    <h2>UGC AUTONOMOUS</h2>
+                    <p>Approved by AICTE | Affiliated to JNTUH | Accredited by NAAC & NBA</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li>
+                        <a href="#">Administration</a>
+                        <div class="dropdown">
+                            <a href="#">Admin Team</a>
+                            <a href="#">Policies</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Departments</a>
+                        <div class="dropdown">
+                            <a href="#">Computer Science</a>
+                            <a href="#">Electronics</a>
+                            <a href="#">Mechanical</a>
+                            <a href="#">Civil</a>
+                            <a href="#">Information Technology</a>
+                            <a href="#">Artificial Intelligence</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Examination</a>
+                    </li>
+                    <li><a href="#">Infrastructure</a>
+                    <div class="dropdown">
+                        <a href="#">Library</a>
+                        <a href="#">Laboratory</a>
+                        <a href="#">Hostel</a>
+                        
+                    </div>
+                    </li>
+                    <li><a href="#">Placements</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Activities</a>
+                    <div class="dropdown">
+                        <a href="#">Clubs</a>
+                        <a href="#">Virtual Labs</a>
+                        <a href="#">Remote centre</a>
+                        <a href="#">EDC</a>
+                        <a href="#">IIC</a>
+                        <a href="#">NCC</a>
+                        <a href="#">NPTEL</a>
+                        <a href="#">Spoken Tutorial</a>
+                        <a href="#">Sports</a>
+                        <a href="#">NSS</a>
+                    </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="admissions">
+            <button>Admissions 2025-26</button>
+        </div>
+    </header>
+
+    <!-- Image Section -->
+    <div class="image-container">
+        <img src="https://i0.wp.com/cmrithyderabad.edu.in/wp-content/uploads/2023/01/Screenshot-17-1024x501-1-1-1.webp?fit=780%2C382&ssl=1" 
+             alt="CMR Engineering College Building">
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2>About CMRIT</h2>
+        <p>
+            CMR Institute of Technology is one of the best engineering Colleges for aspiring engineering students. 
+            It is one of the three colleges established by MGR Educational Society. 
+        </p>
+    </section>
+
+   
+    
+    <section class="recruiters-section">
+        <h2>RECRUITERS OF CMRIT</h2>
+        <div class="recruiters-logos">
+            <img src="https://i0.wp.com/cmrithyderabad.edu.in/wp-content/uploads/2023/01/lsit-of-logos.webp?fit=1121%2C221&ssl=1" alt="Companies">
+        </div>
+    </section>
+
+   
+    <footer>
+        <div class="footer-container">
+            <div class="footer-1">
+                <div class="footer-section">
+                    <h3>CMR INSTITUTE OF TECHNOLOGY</h3>
+                    <p>📞 +91 9247961234</p>
+                    <p>📞 +91 8008557612</p>
+                    <p>📧 principalcmrit@gmail.com</p>
+                    <p>📍 Kandalakoya, Medchal, Hyderabad 501401</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">Clubs</a></li>
+                    <li><a href="#">NSS</a></li>
+                    <li><a href="#">Alumni</a></li>
+                    <li><a href="#">College Committee</a></li>
+                    <li><a href="#">Placements</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Transport</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            Copyright © 2024 CMR Engineering College | All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>
